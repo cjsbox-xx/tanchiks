@@ -27,3 +27,7 @@
 *.exe
 *.out
 *.app
+/proj.win32/Tanchiks.opensdf
+/proj.win32/Tanchiks.sdf
+/proj.win32/Tanchiks.v12.suo
+/proj.win32/Debug.win32
