@@ -162,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SimpleGameContentLoader.cpp" />
     <ClCompile Include="..\Classes\SimpleGameLogic.cpp" />
     <ClCompile Include="..\Classes\SimpleObject.cpp" />
+    <ClCompile Include="..\Classes\SimplePhysicsWorld.cpp" />
     <ClCompile Include="..\Classes\SimpleWorldLoader.cpp" />
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
@@ -178,9 +179,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GameLogic.h" />
     <ClInclude Include="..\Classes\GameWorld.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\BasePhysicsWorld.h" />
     <ClInclude Include="..\Classes\SimpleGameContentLoader.h" />
     <ClInclude Include="..\Classes\SimpleGameLogic.h" />
     <ClInclude Include="..\Classes\SimpleObject.h" />
+    <ClInclude Include="..\Classes\SimplePhysicsWorld.h" />
     <ClInclude Include="..\Classes\SimpleWorldLoader.h" />
     <ClInclude Include="..\Classes\WorldLoader.h" />
     <ClInclude Include="main.h" />

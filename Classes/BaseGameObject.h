@@ -14,6 +14,18 @@ public:
 	virtual void init() = 0;
 	virtual void attachToWorld() = 0;
 	virtual GameObjectType getType() const = 0;
+
+	virtual std::string getName() const
+	{
+		return _name;
+	}
+
+	virtual void setName(const std::string& name)
+	{
+		_name = name;
+	}
+
 protected:
 	GameWorld *_world;
+	std::string _name;
 };

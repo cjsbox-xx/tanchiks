@@ -16,6 +16,7 @@ bool GameWorld::init()
 void GameWorld::initLogic(GameLogic *logic)
 {
 	_gameLogic = logic;
+	_gameLogic->setWorld(this);
 }
 
 void GameWorld::initContent(GameContent *content)
@@ -42,4 +43,9 @@ Layer * GameWorld::getLayerByName(std::string name)
 void GameWorld::addLayer(std::string name, Layer *layer)
 {
 	_layers[name] = layer;
+}
+
+GameContent * GameWorld::getGameContent()
+{
+	return _content;
 }

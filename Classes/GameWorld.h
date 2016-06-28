@@ -15,6 +15,8 @@ public:
 
 	Layer *getLayerByName(std::string name);
 	void addLayer(std::string name, Layer *layer);
+
+	GameContent *getGameContent();
 protected:
 	std::map<std::string, Layer*> _layers;
 	GameContent *_content;
