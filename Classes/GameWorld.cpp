@@ -33,6 +33,7 @@ void GameWorld::startWorld()
 		worldObject->initWithWorld(this);
 	}
 	_gameLogic->worldLoaded();
+	_gameLogic->scheduleUpdate();
 }
 
 Layer * GameWorld::getLayerByName(std::string name)

@@ -4,7 +4,9 @@ class GameWorld;
 
 enum class GameObjectType
 {
-	SIMPLE_OBJECT
+	SIMPLE_OBJECT,
+	TANK,
+	TANK_BULLET
 };
 
 class BaseGameObject

@@ -51,6 +51,12 @@
     <ClCompile Include="..\Classes\SimplePhysicsWorld.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Tank.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DamageObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -99,6 +105,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SimplePhysicsWorld.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tank.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DamageObject.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

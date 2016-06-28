@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\BaseGameObject.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Classes\DamageObject.cpp" />
     <ClCompile Include="..\Classes\GameContent.cpp" />
     <ClCompile Include="..\Classes\GameLogic.cpp" />
     <ClCompile Include="..\Classes\GameWorld.cpp" />
@@ -164,6 +165,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SimpleObject.cpp" />
     <ClCompile Include="..\Classes\SimplePhysicsWorld.cpp" />
     <ClCompile Include="..\Classes\SimpleWorldLoader.cpp" />
+    <ClCompile Include="..\Classes\Tank.cpp" />
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -174,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BaseGameObject.h" />
+    <ClInclude Include="..\Classes\DamageObject.h" />
     <ClInclude Include="..\Classes\GameContent.h" />
     <ClInclude Include="..\Classes\GameContentLoader.h" />
     <ClInclude Include="..\Classes\GameLogic.h" />
@@ -185,6 +188,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SimpleObject.h" />
     <ClInclude Include="..\Classes\SimplePhysicsWorld.h" />
     <ClInclude Include="..\Classes\SimpleWorldLoader.h" />
+    <ClInclude Include="..\Classes\Tank.h" />
     <ClInclude Include="..\Classes\WorldLoader.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="stdafx.h" />
