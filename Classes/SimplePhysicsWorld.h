@@ -91,6 +91,7 @@ class SimplePhysicsWorldCollisionCallback
 {
 public:
 	virtual void onPointsBeginContact(SimplePhysicsPoint *pointA, SimplePhysicsPoint *pointB) = 0;
+	virtual void onPointReachedBorder(SimplePhysicsPoint *point) = 0;
 };
 
 class SimplePhysicsWorld : public BasePhysicsWorld

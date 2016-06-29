@@ -15,6 +15,7 @@ public:
 	virtual void initWithWorld(GameWorld *gameWorld);
 	virtual void init() = 0;
 	virtual void attachToWorld() = 0;
+	virtual void detachFromWorld() = 0;
 	virtual GameObjectType getType() const = 0;
 
 	virtual std::string getName() const

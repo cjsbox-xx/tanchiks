@@ -23,6 +23,12 @@ void SimplePhysicsWorld::update(float dt)
 		if (_worldBounds.containsPoint(newPosition))
 		{
 			point->setPosition(newPosition);
+		} else
+		{
+			if (_collisionCallback)
+			{
+				_collisionCallback->onPointReachedBorder(point);
+			}
 		}
 		float angle = point->getAngle();
 		float angularVelocity = point->getAngularVelocity();
@@ -68,4 +74,9 @@ void SimplePhysicsWorld::destroyPoint(SimplePhysicsPoint *point)
 void SimplePhysicsWorld::setCollisionCallback(SimplePhysicsWorldCollisionCallback *callback)
 {
 	_collisionCallback = callback;
+}
+
+void SimplePhysicsWorldCollisionCallback::onPointReachedBorder(SimplePhysicsPoint *point)
+{
+	
 }

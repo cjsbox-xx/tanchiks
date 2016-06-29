@@ -12,6 +12,11 @@ void SimpleObject::attachToWorld()
 	_world->getLayerByName(GameWorld::MAIN_LAYER)->addChild(_sprite);
 }
 
+void SimpleObject::detachFromWorld()
+{
+
+}
+
 GameObjectType SimpleObject::getType() const
 {
 	return GameObjectType::SIMPLE_OBJECT;

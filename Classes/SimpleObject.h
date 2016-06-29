@@ -6,6 +6,7 @@ class SimpleObject : public BaseGameObject
 public:
 	virtual void init() override;
 	virtual void attachToWorld() override;
+	virtual void detachFromWorld() override;
 	virtual GameObjectType getType() const override;
 private:
 	Sprite *_sprite;

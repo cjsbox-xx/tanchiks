@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\BaseGameObject.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Classes\ControllerManager.cpp" />
     <ClCompile Include="..\Classes\DamageObject.cpp" />
     <ClCompile Include="..\Classes\GameContent.cpp" />
     <ClCompile Include="..\Classes\GameLogic.cpp" />
@@ -176,6 +177,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BaseGameObject.h" />
+    <ClInclude Include="..\Classes\ControllerManager.h" />
     <ClInclude Include="..\Classes\DamageObject.h" />
     <ClInclude Include="..\Classes\GameContent.h" />
     <ClInclude Include="..\Classes\GameContentLoader.h" />
