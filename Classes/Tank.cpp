@@ -83,6 +83,11 @@ void Tank::setPhysicsPoint(SimplePhysicsPoint *point)
 	_point->setUserData(this);
 }
 
+SimplePhysicsPoint * Tank::getPhysicsPoint()
+{
+	return _point;
+}
+
 void Tank::moveLeft()
 {
 	_point->setAngularVelocity(-ROTATION_SPEED);

@@ -31,6 +31,19 @@ void Monster::onDeath()
 	}
 }
 
+void Monster::onAfterDamage(DamageableObject* damageableObject)
+{
+	onDeath();
+}
+
+void Monster::setDirection(Vec2 direction)
+{
+	Vec2 velocity = direction * getSpeed();
+	_physicsPoint->setVelocity(velocity);
+	float angle = CC_RADIANS_TO_DEGREES(atan2f(-direction.y, direction.x)) + 90.0f;
+	_physicsPoint->setAngle(angle);
+}
+
 void Monster::update(float dt)
 {
 	_sprite->setPosition(_physicsPoint->getPosition());
@@ -74,6 +87,11 @@ float Monster1::getArmor()
 	return 0.1f;
 }
 
+float Monster1::getSpeed()
+{
+	return 50.0f;
+}
+
 GameObjectType Monster2::getType() const
 {
 	return GameObjectType::MONSTER2;
@@ -99,6 +117,11 @@ float Monster2::getArmor()
 	return 0.2f;
 }
 
+float Monster2::getSpeed()
+{
+	return 150.0f;
+}
+
 GameObjectType Monster3::getType() const
 {
 	return GameObjectType::MONSTER3;
@@ -122,4 +145,9 @@ float Monster3::getLife()
 float Monster3::getArmor()
 {
 	return 0.4f;
+}
+
+float Monster3::getSpeed()
+{
+	return 100.0f;
 }

@@ -1,8 +1,9 @@
 #include "MonstersPlaceHandler.h"
 #include "GameWorld.h"
+#include "Tank.h"
 
-MonstersPlaceHandler::MonstersPlaceHandler(GameWorld *world, MonstersPlace* monstersPlace) : 
-_world(world), _monstersPlace(monstersPlace)
+MonstersPlaceHandler::MonstersPlaceHandler(GameWorld *world, MonstersPlace* monstersPlace, Tank *tank) : 
+_world(world), _monstersPlace(monstersPlace), _tank(tank)
 {
 
 }
@@ -24,6 +25,13 @@ void MonstersPlaceHandler::update(float dt)
 		{
 			createMonster();
 		}
+	}
+
+	for (auto monster : _monsters)
+	{
+		Vec2 direction = _tank->getPhysicsPoint()->getPosition() - monster->getPhysicsPoint()->getPosition();
+		direction.normalize();
+		monster->setDirection(direction);
 	}
 }
 
@@ -49,7 +57,7 @@ void MonstersPlaceHandler::createMonster()
 	Vec2 position(_monstersPlace->getPhysicsPoint()->getPosition().x + cosf(angle) * _monstersPlace->getMonstersRadius(),
 		_monstersPlace->getPhysicsPoint()->getPosition().y + sinf(angle) * _monstersPlace->getMonstersRadius());
 
-	monster->setPhysicsPoint(_world->getGameContent()->getPhysicsWorld()->createPoint(position, 0.0f, 10.0f));
+	monster->setPhysicsPoint(_world->getGameContent()->getPhysicsWorld()->createPoint(position, 0.0f, 50.0f));
 
 	monster->initWithWorld(_world);
 	_monsters.push_back(monster);

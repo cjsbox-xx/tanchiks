@@ -14,7 +14,7 @@ void SimpleGameLogic::worldLoaded()
 	std::vector<MonstersPlace*> monstersPlaces = _world->getGameContent()->getObjectsByTypeName<MonstersPlace>(GameObjectType::MONSTERS_PLACE);
 	for (auto monstersPlace : monstersPlaces)
 	{
-		MonstersPlaceHandler *handler = new MonstersPlaceHandler(_world, monstersPlace);
+		MonstersPlaceHandler *handler = new MonstersPlaceHandler(_world, monstersPlace, _tank);
 		_handlers.push_back(handler);
 	}
 }
@@ -107,6 +107,7 @@ void SimpleGameLogic::onPointsBeginContact(SimplePhysicsPoint* pointA, SimplePhy
 	{
 		DamageInfo *damageInfo = damageObjectB->getDamageInfo();
 		damageableObjectA->damage(damageInfo);
+		damageObjectB->onAfterDamage(damageableObjectA);
 		delete damageInfo;
 	}
 	DamageableObject *damageableObjectB = dynamic_cast<DamageableObject*>(gameObjectB);
@@ -115,6 +116,7 @@ void SimpleGameLogic::onPointsBeginContact(SimplePhysicsPoint* pointA, SimplePhy
 	{
 		DamageInfo *damageInfo = damageObjectA->getDamageInfo();
 		damageableObjectB->damage(damageInfo);
+		damageObjectA->onAfterDamage(damageableObjectB);
 		delete damageInfo;
 	}
 }

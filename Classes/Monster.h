@@ -14,7 +14,10 @@ public:
 	virtual float getDamageValue() = 0;
 	virtual float getLife() = 0;
 	virtual float getArmor() = 0;
+	virtual float getSpeed() = 0;
 	virtual void onDeath() override;
+	virtual void onAfterDamage(DamageableObject* damageableObject);
+	virtual void setDirection(Vec2 direction);
 
 	virtual std::string getSpriteName() = 0;
 	void update(float dt);
@@ -37,6 +40,7 @@ public:
 	virtual std::string getSpriteName() override;
 	virtual float getLife() override;
 	virtual float getArmor() override;
+	virtual float getSpeed() override;
 };
 class Monster2 : public Monster
 {
@@ -46,6 +50,7 @@ public:
 	virtual std::string getSpriteName() override;
 	virtual float getLife() override;
 	virtual float getArmor() override;
+	virtual float getSpeed() override;
 };
 class Monster3 : public Monster
 {
@@ -55,4 +60,5 @@ public:
 	virtual std::string getSpriteName() override;
 	virtual float getLife() override;
 	virtual float getArmor() override;
+	virtual float getSpeed() override;
 };

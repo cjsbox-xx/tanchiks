@@ -114,6 +114,7 @@ public:
 	virtual void update(float dt);
 
 	void setPhysicsPoint(SimplePhysicsPoint *point);
+	SimplePhysicsPoint *getPhysicsPoint();
 
 	void moveLeft();
 	void moveRight();
