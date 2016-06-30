@@ -323,7 +323,7 @@ std::string TankCannon3::getSpriteName()
 
 float TankBullet1::getDamageValue()
 {
-	return 1.0f;
+	return 10.0f;
 }
 
 float TankBullet1::getBulletSpeed()
@@ -338,7 +338,7 @@ std::string TankBullet1::getSpriteName()
 
 float TankBullet2::getDamageValue()
 {
-	return 0.5f;
+	return 5.0f;
 }
 
 float TankBullet2::getBulletSpeed()
@@ -353,7 +353,7 @@ std::string TankBullet2::getSpriteName()
 
 float TankBullet3::getDamageValue()
 {
-	return 0.8f;
+	return 8.0f;
 }
 
 float TankBullet3::getBulletSpeed()

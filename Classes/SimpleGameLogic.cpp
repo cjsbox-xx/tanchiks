@@ -1,5 +1,6 @@
 #include "SimpleGameLogic.h"
 #include "GameWorld.h"
+#include "MonstersPlace.h"
 
 void SimpleGameLogic::worldLoaded()
 {
@@ -9,11 +10,22 @@ void SimpleGameLogic::worldLoaded()
 	_tank = static_cast<Tank*>(_world->getGameContent()->getObjectByName("Player"));
 
 	ControllerManager::getInstance()->registerListener(this);
+
+	std::vector<MonstersPlace*> monstersPlaces = _world->getGameContent()->getObjectsByTypeName<MonstersPlace>(GameObjectType::MONSTERS_PLACE);
+	for (auto monstersPlace : monstersPlaces)
+	{
+		MonstersPlaceHandler *handler = new MonstersPlaceHandler(_world, monstersPlace);
+		_handlers.push_back(handler);
+	}
 }
 
 void SimpleGameLogic::update(float delta)
 {
 	_physicsWorld->update(delta);
+	for (auto handler : _handlers)
+	{
+		handler->update(delta);
+	}
 }
 
 void SimpleGameLogic::onKeyDown(EventKeyboard::KeyCode keyCode)
@@ -73,7 +85,38 @@ void SimpleGameLogic::onKeyUp(EventKeyboard::KeyCode keyCode)
 
 void SimpleGameLogic::onPointsBeginContact(SimplePhysicsPoint* pointA, SimplePhysicsPoint* pointB)
 {
+	BaseGameObject *gameObjectA = static_cast<BaseGameObject*>(pointA->getUserData());
+	BaseGameObject *gameObjectB = static_cast<BaseGameObject*>(pointB->getUserData());
 
+	//ToDo как-то надо обойти эту проверку
+	if (gameObjectA->getType() == GameObjectType::TANK && gameObjectB->getType() == GameObjectType::TANK_BULLET
+		|| gameObjectB->getType() == GameObjectType::TANK && gameObjectA->getType() == GameObjectType::TANK_BULLET)
+	{
+		return;
+	}
+
+	if (isMonster(gameObjectA) && isMonster(gameObjectB))
+	{
+		return;
+	}
+
+	DamageableObject *damageableObjectA = dynamic_cast<DamageableObject*>(gameObjectA);
+	DamageObject *damageObjectB = dynamic_cast<DamageObject*>(gameObjectB);
+
+	if (damageableObjectA && damageObjectB)
+	{
+		DamageInfo *damageInfo = damageObjectB->getDamageInfo();
+		damageableObjectA->damage(damageInfo);
+		delete damageInfo;
+	}
+	DamageableObject *damageableObjectB = dynamic_cast<DamageableObject*>(gameObjectB);
+	DamageObject *damageObjectA = dynamic_cast<DamageObject*>(gameObjectA);
+	if (damageableObjectB && damageObjectA)
+	{
+		DamageInfo *damageInfo = damageObjectA->getDamageInfo();
+		damageableObjectB->damage(damageInfo);
+		delete damageInfo;
+	}
 }
 
 void SimpleGameLogic::onPointReachedBorder(SimplePhysicsPoint* point)
@@ -89,4 +132,11 @@ void SimpleGameLogic::onPointReachedBorder(SimplePhysicsPoint* point)
 			}, 0.0f, "DestroyGameObject");
 		}
 	}
+}
+
+bool SimpleGameLogic::isMonster(BaseGameObject *gameObject)
+{
+	return gameObject->getType() == GameObjectType::MONSTER1 
+		|| gameObject->getType() == GameObjectType::MONSTER2
+		|| gameObject->getType() == GameObjectType::MONSTER3;
 }

@@ -3,6 +3,7 @@
 #include "SimplePhysicsWorld.h"
 #include "Tank.h"
 #include "ControllerManager.h"
+#include "MonstersPlaceHandler.h"
 
 class SimpleGameLogic : public GameLogic, public KeyboardListener, public SimplePhysicsWorldCollisionCallback
 {
@@ -16,7 +17,10 @@ public:
 
 	virtual void onPointsBeginContact(SimplePhysicsPoint* pointA, SimplePhysicsPoint* pointB) override;
 	virtual void onPointReachedBorder(SimplePhysicsPoint* point) override;
+
+	virtual bool isMonster(BaseGameObject *gameObject);
 private:
 	SimplePhysicsWorld *_physicsWorld;
+	std::vector<MonstersPlaceHandler*> _handlers;
 	Tank *_tank;
 };

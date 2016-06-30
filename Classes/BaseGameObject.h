@@ -6,7 +6,11 @@ enum class GameObjectType
 {
 	SIMPLE_OBJECT,
 	TANK,
-	TANK_BULLET
+	TANK_BULLET,
+	MONSTERS_PLACE,
+	MONSTER1,
+	MONSTER2,
+	MONSTER3
 };
 
 class BaseGameObject

@@ -161,6 +161,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Classes\Monster.cpp" />
+    <ClCompile Include="..\Classes\MonstersPlace.cpp" />
+    <ClCompile Include="..\Classes\MonstersPlaceHandler.cpp" />
     <ClCompile Include="..\Classes\SimpleGameContentLoader.cpp" />
     <ClCompile Include="..\Classes\SimpleGameLogic.cpp" />
     <ClCompile Include="..\Classes\SimpleObject.cpp" />
@@ -185,6 +188,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\GameWorld.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\BasePhysicsWorld.h" />
+    <ClInclude Include="..\Classes\Monster.h" />
+    <ClInclude Include="..\Classes\MonstersPlace.h" />
+    <ClInclude Include="..\Classes\MonstersPlaceHandler.h" />
     <ClInclude Include="..\Classes\SimpleGameContentLoader.h" />
     <ClInclude Include="..\Classes\SimpleGameLogic.h" />
     <ClInclude Include="..\Classes\SimpleObject.h" />

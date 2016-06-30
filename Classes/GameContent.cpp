@@ -22,6 +22,7 @@ BaseGameObject * GameContent::getObjectByName(std::string name)
 	return nullptr;
 }
 
+
 void GameContent::setPhysicsWorld(SimplePhysicsWorld *physicsWorld)
 {
 	_physicsWorld = physicsWorld;
